@@ -30,7 +30,7 @@ curl -X PUT "localhost:9200/_template/template_1?pretty" -H 'Content-Type: appli
       },
       "grossValue": {
         "type": "long"
-      }
+      },
       "price": {
         "type": "float"
       },
