@@ -1,0 +1,50 @@
+#!/bin/sh
+curl -X PUT "localhost:9200/_template/template_1?pretty" -H 'Content-Type: application/json' -d'
+{
+  "index_patterns": ["bitmex.trade*"],
+  "settings": {
+    "number_of_shards": 1
+  },
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "type": "date"
+      },
+      "tag": {
+        "type": "keyword"
+      },
+      "symbol": {
+        "type": "keyword"
+      },
+      "side": {
+        "type": "keyword"
+      },
+      "size": {
+        "type": "long"
+      },
+      "insert-id": {
+        "type": "keyword"
+      },
+      "tickDirection": {
+        "type": "keyword"
+      },
+      "grossValue": {
+        "type": "long"
+      }
+      "price": {
+        "type": "float"
+      },
+      "homeNotional": {
+        "type": "float"
+      },
+      "foreignNotional": {
+        "type": "float"
+      },
+      "trdMatchID": {
+        "type": "keyword"
+      }
+    }
+  }
+}
+'
+
