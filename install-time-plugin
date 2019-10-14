@@ -1,10 +1,13 @@
 #!/bin/sh
+
+# NPN
+sudo npm install -g bower
+
 # Debian plugin dir
 cd /usr/share/kibana/plugins
 sudo git clone http://github.com/nreese/kibana-time-plugin.git
 cd kibana-time-plugin
-
 sudo git checkout master
 sudo sed -i -e 's/"version".*/"version" : "7.3.2"/' package.json
-sudo -u kibana bower install
+sudo bower install --allow-root
 
