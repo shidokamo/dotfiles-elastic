@@ -1,5 +1,8 @@
 #!/bin/sh
 # Debian plugin dir
 cd /usr/share/kibana/plugins
-sudo git clone git@github.com:nreese/kibana-time-plugin.git
+sudo git clone http://github.com/nreese/kibana-time-plugin.git
 cd kibana-time-plugin
+
+sudo git checkout master
+
