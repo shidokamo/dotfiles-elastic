@@ -20,10 +20,12 @@ sudo npm install -g n
 # Install Node version used by Kibana
 sudo n install 10.15.2
 
-# Uninstall Ubuntu/Debian Node
-sudo apt-get purge nodejs
+# Uninstall Ubuntu/Debian Node. 'node_modules' will be kept so you can still use 'n'.
+sudo apt purge -y nodejs
 
-# Check Node version
+# Check Node version. It should be 'v10.15.2'
+which node
+which npm
 node --version
 
 # Install bower for Kibana time-plugin
@@ -42,4 +44,5 @@ sudo sed -i -e 's/"version".*/"version" : "7.3.2"/' package.json
 sudo bower install --allow-root
 
 # Restart Kibana
+sudo systemctl restart kibana
 
