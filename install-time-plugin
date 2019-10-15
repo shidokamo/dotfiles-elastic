@@ -10,14 +10,14 @@ cat $KIBANA_HOME/package.json | grep node
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 sudo apt-get install -y nodejs
 
-# Check node version
+# Check installed Node version
 # In my case >> v10.16.3 (!! VERSION MISMATCH !!)
 node --version
 
-# Install node version manager
+# Install Node version manager 'n'
 sudo npm install -g n
 
-# Install Node version used by Kibana
+# Install Node version matching with Kibana
 sudo n install 10.15.2
 
 # Uninstall Ubuntu/Debian Node. 'node_modules' will be kept so you can still use 'n'.
@@ -37,10 +37,10 @@ sudo git clone http://github.com/nreese/kibana-time-plugin.git
 cd kibana-time-plugin
 sudo git checkout master
 
-# Update package.json to specify your Kibana version.
+# Update plugin package.json to specify your Kibana version.
 sudo sed -i -e 's/"version".*/"version" : "7.3.2"/' package.json
 
-# --allow-root was required to install it globally
+# --allow-root was required to run Bower as root
 sudo bower install --allow-root
 
 # Restart Kibana
