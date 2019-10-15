@@ -3,13 +3,31 @@
 # Kibana installation dir for Ubuntu/Debian
 KIBANA_HOME=/usr/share/kibana
 
-# Check Node version
-ls $KIBANA_HOME
-exit
+# Check Node version for your Kibana
+# In my case >>  "node": "10.15.2"
+cat $KIBANA_HOME/package.json | grep node
 
 # Install Node.js with package manager
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 sudo apt-get install -y nodejs
+
+# Check node version
+# In my case >> v10.16.3 (!! VERSION MISMATCH !!)
+node --version
+
+# Install node version manager
+sudo npm install -g n
+
+# Install Node version used by Kibana
+sudo n install 10.15.2
+
+# Uninstall Ubuntu/Debian Node
+sudo apt-get purge nodejs
+
+# Check Node version
+node --version
+
+
 
 # NPN
 sudo npm install -g bower
