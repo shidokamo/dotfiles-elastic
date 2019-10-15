@@ -15,12 +15,16 @@ sudo apt-get install -y nodejs
 node --version
 
 # Install Node version manager 'n'
+# (Technically, you can install 'n' without npm since it's just a shell script.
+#  It might be simpler to install it without npm. In that case, you need to 
+#  uninstall all node and npm before running installation script.)
 sudo npm install -g n
 
 # Install Node version matching with Kibana
 sudo n install 10.15.2
 
 # Uninstall Ubuntu/Debian Node. 'node_modules' will be kept so you can still use 'n'.
+# This is to make sure Node installed by 'n' is found first in the PATH.
 sudo apt purge -y nodejs
 
 # Check Node version. It should be 'v10.15.2'
