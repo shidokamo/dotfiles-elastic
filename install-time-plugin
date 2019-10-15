@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # Kibana installation dir for Ubuntu/Debian
 KIBANA_HOME=/usr/share/kibana
 
@@ -27,16 +26,20 @@ sudo apt-get purge nodejs
 # Check Node version
 node --version
 
-
-
-# NPN
+# Install bower for Kibana time-plugin
 sudo npm install -g bower
 
-# Debian plugin dir
-cd /usr/share/kibana/plugins
+# Install plugin
+cd $KIBANA_HOME/plugins
 sudo git clone http://github.com/nreese/kibana-time-plugin.git
 cd kibana-time-plugin
 sudo git checkout master
+
+# Update package.json to specify your Kibana version.
 sudo sed -i -e 's/"version".*/"version" : "7.3.2"/' package.json
+
+# --allow-root was required to install it globally
 sudo bower install --allow-root
+
+# Restart Kibana
 
