@@ -1,5 +1,16 @@
 #!/bin/sh
 
+# Kibana installation dir for Ubuntu/Debian
+KIBANA_HOME=/usr/share/kibana
+
+# Check Node version
+ls $KIBANA_HOME
+exit
+
+# Install Node.js with package manager
+curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+sudo apt-get install -y nodejs
+
 # NPN
 sudo npm install -g bower
 
